@@ -25,7 +25,7 @@ function productAdd(_, {product}) {
 }
 
 const server = new ApolloServer({
-    typeDefs: fs.readFileSync('./server/schema.graphql', 'utf-8'),
+    typeDefs: fs.readFileSync('./server/schema.graphql', 'utf-8'),                                                                                                                                                                                                                                                                                                                                                                                             
     resolvers,
 });
 

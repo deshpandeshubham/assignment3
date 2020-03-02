@@ -26,10 +26,10 @@ class ProductRow extends React.Component {
         const prd = this.props.product;
         return(
             <tr>
-                <td>{prd.productName}</td>
-                <td>${prd.productPrice}</td>
-                <td>{prd.productCategory}</td>
-                <td><a href={prd.productImage} target="_blank">View</a></td>
+                <td>{prd.Name}</td>
+                <td>${prd.Price}</td>
+                <td>{prd.Category}</td>
+                <td><a href={prd.Image} target="_blank">View</a></td>
             </tr>
         )
     }
@@ -126,10 +126,10 @@ class Product extends React.Component {
         this.setState({products: newProducts});
         const query = `mutation {
             productAdd(product:{
-                Name: "${newProduct.Name}",
-                Price: ${newProduct.Price},
-                Image: "${newProduct.Image}",
-                Category: ${newProduct.Category},
+                Name: "${newProduct.productName}",
+                Price: ${newProduct.productPrice},
+                Image: "${newProduct.productImage}",
+                Category: ${newProduct.productCategory},
             }) {id}
         }`;
         const response = await fetch('/graphql', {

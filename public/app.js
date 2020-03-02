@@ -18,8 +18,8 @@ class ProductTable extends React.Component {
 class ProductRow extends React.Component {
   render() {
     const prd = this.props.product;
-    return React.createElement("tr", null, React.createElement("td", null, prd.productName), React.createElement("td", null, "$", prd.productPrice), React.createElement("td", null, prd.productCategory), React.createElement("td", null, React.createElement("a", {
-      href: prd.productImage,
+    return React.createElement("tr", null, React.createElement("td", null, prd.Name), React.createElement("td", null, "$", prd.Price), React.createElement("td", null, prd.Category), React.createElement("td", null, React.createElement("a", {
+      href: prd.Image,
       target: "_blank"
     }, "View")));
   }
@@ -129,10 +129,10 @@ class Product extends React.Component {
     });
     const query = `mutation {
             productAdd(product:{
-                Name: "${newProduct.Name}",
-                Price: ${newProduct.Price},
-                Image: "${newProduct.Image}",
-                Category: ${newProduct.Category},
+                Name: "${newProduct.productName}",
+                Price: ${newProduct.productPrice},
+                Image: "${newProduct.productImage}",
+                Category: ${newProduct.productCategory},
             }) {id}
         }`;
     const response = await fetch('/graphql', {
